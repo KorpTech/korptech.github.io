@@ -1,0 +1,93 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body */
+body {
+  /* background-color: #f8f9fa; */
+  background-color: #f0f4f8;
+  color: #333;
+  text-align: center;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  margin-bottom: 50px;
+}
+
+header .logo {
+  width: auto;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+header p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* Team layout */
+.team {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.person {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  /* width: 220px; */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.person:hover {
+  transform: translateY(-5px);
+}
+
+.person img {
+  /* width: 150px;
+  height: 150px;
+  border-radius: 50%; */
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.person h2 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.person p {
+  font-size: 0.95em;
+  margin-bottom: 5px;
+}
+
+.person a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.person a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  font-size: 0.9em;
+  color: #888;
+}
