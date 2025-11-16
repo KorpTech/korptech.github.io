@@ -3,39 +3,58 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Inter', sans-serif; /* Bas-typsnitt för text */
 }
 
 /* Body */
 body {
-  /* background-color: #f8f9fa; */
-  /* background-color: #f0f4f8; */
-  background-color: rgb(247,242,236);
+  background-color: rgb(203, 203, 206);
   color: #333;
-  text-align: center;
   line-height: 1.6;
   padding: 20px;
+  text-align: center;
 }
 
 /* Header */
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   margin-bottom: 50px;
+  padding: 20px;
 }
 
 header .logo {
   width: 200px;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-header h1 {
-  font-size: 2em;
-  margin-bottom: 5px;
-}
-
-header p {
+header .tagline {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: italic;
   font-size: 1.1em;
-  color: #555;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.page_description {
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.page_description p {
+  margin-bottom: 12px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.page_description p span.highlight {
+  color: #000000; /* accentfärg för viktiga ord */
+  font-weight: 500;
 }
 
 /* Team layout */
@@ -44,45 +63,50 @@ header p {
   justify-content: center;
   gap: 50px;
   flex-wrap: wrap;
+  margin-bottom: 50px;
 }
 
 .person {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  /* width: 220px; */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
 }
 
 .person:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .person img {
-  /* width: 150px;
-  height: 150px;
-  border-radius: 50%; */
+  width: 200px;
+  height: auto;
+  border-radius: 10%;
   object-fit: cover;
   margin-bottom: 15px;
 }
 
 .person h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   font-size: 1.2em;
   margin-bottom: 5px;
 }
 
-.person p {
+.person .role {
   font-size: 0.95em;
+  color: #555;
   margin-bottom: 5px;
 }
 
-.person a {
+.person p a {
   color: #0077cc;
   text-decoration: none;
 }
 
-.person a:hover {
+.person p a:hover {
   text-decoration: underline;
 }
 
@@ -91,4 +115,51 @@ footer {
   margin-top: 50px;
   font-size: 0.9em;
   color: #888;
+}
+
+/* Responsivitet */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 1.9em;
+  }
+
+  .page_description {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .person {
+    width: 260px; /* bredare kort på mellanstora skärmar */
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .page_description {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  header .logo {
+    width: 150px;
+  }
+
+  .person {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .person img {
+    width: 80%;
+    max-width: 200px;
+  }
 }
