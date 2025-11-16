@@ -147,7 +147,9 @@ header .tagline {
   max-width: 40%;
   height: auto;
   border-radius: 8px;
-  flex: 0 0 220px;
+  flex: 0 0 auto;
+  align-self: flex-start;
+  object-fit: cover;
 }
 
 .person_details {
@@ -165,6 +167,7 @@ header .tagline {
   margin-top: auto;
   padding-top: 12px;
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 /* Footer */
