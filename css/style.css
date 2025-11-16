@@ -9,7 +9,8 @@
 /* Body */
 body {
   /* background-color: #f8f9fa; */
-  background-color: #f0f4f8;
+  /* background-color: #f0f4f8; */
+  background-color: rgb(247,242,236);
   color: #333;
   text-align: center;
   line-height: 1.6;
@@ -22,7 +23,7 @@ header {
 }
 
 header .logo {
-  width: auto;
+  width: 200px;
   height: auto;
   margin-bottom: 10px;
 }
