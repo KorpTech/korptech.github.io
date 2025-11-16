@@ -6,13 +6,22 @@
   font-family: 'Inter', sans-serif; /* Bas-typsnitt för text */
 }
 
+/* Make images and SVGs scale to their container */
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Body */
 body {
-  background-color: rgb(203, 203, 206);
+  background-color: rgb(224, 224, 241);
   color: #333;
   line-height: 1.6;
   padding: 20px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Header */
@@ -25,8 +34,16 @@ header {
   padding: 20px;
 }
 
+header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  margin-bottom: 8px;
+}
+
 header .logo {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   height: auto;
   margin-bottom: 15px;
 }
@@ -44,6 +61,7 @@ header .tagline {
   max-width: 1000px;
   margin: 0 auto;
   line-height: 1.5;
+  padding: 0 10px;
 }
 
 .page_description p {
@@ -73,6 +91,8 @@ header .tagline {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   text-align: center;
+  width: 100%;
+  max-width: 250px;
 }
 
 .person:hover {
@@ -81,11 +101,12 @@ header .tagline {
 }
 
 .person img {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   height: auto;
   border-radius: 10%;
   object-fit: cover;
-  margin-bottom: 15px;
+  margin: 0 auto 15px;
 }
 
 .person h2 {
