@@ -1,40 +1,559 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ulf Jansson — KorpTech</title>
-  <link rel="stylesheet" href="./css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ulf Jansson – Teknisk projektledare | IoT & digitalisering</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-mid: #3d3d3d;
+    --ink-light: #6b6b6b;
+    --rule: #d0ccc8;
+    --accent: #1a3a5c;
+    --accent-soft: #e8edf3;
+    --page: #faf9f7;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    font-size: 15px;
+    background: #e8e4df;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--page);
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 64px 72px;
+    line-height: 1.65;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 28px;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink-mid);
+    letter-spacing: 0.3px;
+    margin-bottom: 16px;
+  }
+
+  .contact {
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    line-height: 1.9;
+  }
+
+  .contact a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .contact a:hover { border-bottom-color: var(--accent); }
+
+  .contact-sep {
+    display: inline-block;
+    margin: 0 8px;
+    color: var(--rule);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ── PROFIL ── */
+  .profile-text {
+    font-size: 0.93rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    max-width: 680px;
+  }
+
+  /* ── KOMPETENSER ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+  }
+
+  .skills-group h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+
+  .skills-group ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .skills-group ul li {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    padding: 3px 0;
+    padding-left: 12px;
+    position: relative;
+  }
+
+  .skills-group ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+    font-size: 0.75rem;
+    top: 4px;
+  }
+
+  /* ── PROJEKT & JOBB ── */
+  .entry {
+    margin-bottom: 24px;
+  }
+
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .entry-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .entry-date {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    white-space: nowrap;
+    margin-left: 16px;
+  }
+
+  .entry-subtitle {
+    font-size: 0.83rem;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  .entry ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .entry ul li {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    padding: 3px 0 3px 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .entry ul li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  /* Projekt-grupp rubrik */
+  .project-context {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 12px;
+    margin-top: 4px;
+  }
+
+  /* ── UTBILDNING ── */
+  .edu-entry {
+    margin-bottom: 20px;
+  }
+
+  .edu-entry:last-child { margin-bottom: 0; }
+
+  /* ── CERTIFIKAT ── */
+  .cert-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cert-list li {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    padding: 3px 0 3px 16px;
+    position: relative;
+  }
+
+  .cert-list li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  /* ── SPRÅK ── */
+  .lang-row {
+    display: flex;
+    gap: 40px;
+  }
+
+  .lang-item {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+  }
+
+  .lang-item strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 8px 0 20px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    html { background: white; font-size: 11pt; }
+    body {
+      max-width: 100%;
+      margin: 0;
+      padding: 20mm 18mm;
+      box-shadow: none;
+      background: white;
+    }
+    h1 { font-size: 22pt; }
+    a { color: var(--accent) !important; text-decoration: none; }
+    section { page-break-inside: avoid; }
+    .entry { page-break-inside: avoid; }
+  }
+
+  @media (max-width: 640px) {
+    body { padding: 32px 24px; }
+    .skills-grid { grid-template-columns: 1fr; gap: 16px; }
+    .entry-header { flex-direction: column; }
+    .entry-date { margin-left: 0; margin-top: 2px; }
+    .lang-row { flex-direction: column; gap: 8px; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Ulf Jansson</h1>
-    <p class="tagline">IoT Project Manager</p>
-  </header>
 
-  <main>
-    <section class="profile">
-      <img src="./images/ulf_2.png" alt="Ulf headshot">
-      <div>
-        <p class="person_details">I am an IoT Project Manager currently completing my Higher Vocational Education degree in IoT project management with a focus on wireless networks at <a href="https://www.tucsweden.se/utbildning/program/iot-projektor-tradlosa-nat-distans-helsingborg/">TUC Sweden AB</a>, with graduation expected in May 2026. 
-        <br>
-        With a background spanning several industries, I bring a strong analytical approach, adaptability, and hands-on problem-solving skills into my work.
-        <br><br>
-        I have practical experience with wireless communication technologies, device provisioning, cloud-based IoT platforms, and project workflows that involve both hardware and software. I enjoy translating technical requirements into clear project plans, coordinating cross-functional work, and ensuring that solutions are robust, maintainable, and aligned with the client's operational needs.
-        <br><br>
-        My main focus is delivering reliable IoT systems through structured project management, clear communication, and a strong commitment to quality.
-        </p>
-        <div class="contact_card">
-          <p>Email me at <a href="mailto:ulf@korptech.eu">ulf@korptech.eu</a></p>
-          <p>Connect with me on <a href="https://www.linkedin.com/in/ulf-jansson-iot/">LinkedIn</a>.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header>
+  <h1>Ulf Jansson</h1>
+  <p class="tagline">Teknisk projektledare (Technical Project Manager) | IoT &amp; digitalisering</p>
+  <div class="contact">
+    070-756 74 32
+    <span class="contact-sep">·</span>
+    <a href="mailto:jansson.a.ulf@gmail.com">jansson.a.ulf@gmail.com</a>
+    <span class="contact-sep">·</span>
+    <a href="https://linkedin.com/in/ulf-jansson-iot/" target="_blank">linkedin.com/in/ulf-jansson-iot</a>
+    <br>
+    Baserad i Skåne &nbsp;·&nbsp; Öppen för remote- eller hybridroller i Sverige och Europa
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     PROFIL
+══════════════════════════════════════════ -->
+<section>
+  <h2>Profil</h2>
+  <p class="profile-text">
+    Teknisk projektledare med dokumenterad förmåga att driva IoT-implementationer från idé till driftsatt lösning – inom tid, inom budget och med mätbara affärsresultat. Har lett PoC:er i verkliga miljöer, byggt samarbeten mellan organisationer och finansierat projekt utan extern budget. Bakgrund som företagare med personalansvar kombineras med ny YH-examen inom IoT-projektledning – vilket ger både praktiskt ledarskap och teknisk förståelse för LoRaWAN, nätverk och IoT-plattformar.
+  </p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     KOMPETENSER
+══════════════════════════════════════════ -->
+<section>
+  <h2>Kompetenser</h2>
+  <div class="skills-grid">
+    <div class="skills-group">
+      <h3>Projekt &amp; Verksamhet</h3>
+      <ul>
+        <li>Projektledning (Project Management, Agile, Scrum, Waterfall)</li>
+        <li>Intressent- och kravhantering (Stakeholder Management, Requirements Engineering)</li>
+      </ul>
+    </div>
+    <div class="skills-group">
+      <h3>Tekniskt</h3>
+      <ul>
+        <li>IoT (LoRaWAN, gateways)</li>
+        <li>Nätverk (TCP/IP)</li>
+        <li>IT-säkerhet / cybersäkerhet</li>
+        <li>Linux (bash, systemadministration, nätverksfelsökning)</li>
+        <li>Jira</li>
+        <li>Node-RED, Grafana, IoT Open, ChirpStack, Azure</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PROJEKT
+══════════════════════════════════════════ -->
+<section>
+  <h2>Projekt</h2>
+  <p class="project-context">IoT/LoRaWAN Gateway Implementation – genomförda under LIA inom YH-utbildning IoT-projektör</p>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Hässlehem AB</span>
+      <span class="entry-date">2025</span>
+    </div>
+    <ul>
+      <li>Ledde och genomförde under 5 veckor en PoC för att undersöka möjligheten att driva eget sensornätverk inom bolaget, vilket resulterade i vidare implementation hos Hässleholms Miljö AB och ett samarbete mellan bolagen</li>
+      <li>Installerade och konfigurerade Milesight UG67 LoRaWAN gateway samt 10 tillhörande sensorer av olika typer över totalt 3 fastigheter</li>
+      <li>Genomförde implementation i verklig miljö (16-våningsfastighet)</li>
+      <li>Utförde en NIS 2-utredning för bolaget</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Hässleholms Miljö AB</span>
+      <span class="entry-date">2026</span>
+    </div>
+    <ul>
+      <li>Ledde och genomförde PoC för IoT/LoRaWAN genom att installera och konfigurera 2 × Kerlink iFemtoCell-evolution gateways samt tillhörande sensorer med end-to-end plattformskonfiguration (ChirpStack, IoT Open)</li>
+      <li>Finansierade PoC till 100% via extern sponsorrekrytering från privata aktörer inom branschen – projektets totala budget: 0 kr</li>
+      <li>Samordnade interna och externa intressenter under implementationen</li>
+      <li>Identifierade och hanterade risker och prioriteringar under projektets genomförande</li>
+      <li>Levererade enligt tidplan och inom budget; beräknad driftsbesparing för bolaget: 10%</li>
+      <li>Projektet lade grunden för ett fortsatt samarbete mellan bolagen och en skalbar IoT-infrastruktur för framtida expansion</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     UTBILDNING
+══════════════════════════════════════════ -->
+<section>
+  <h2>Utbildning &amp; Kompetensbevis</h2>
+
+  <div class="edu-entry entry">
+    <div class="entry-header">
+      <span class="entry-title">YH-examen – Digitalisering &amp; IoT-projektledning (IoT-projektör)</span>
+      <span class="entry-date">2024–2026</span>
+    </div>
+    <div class="entry-subtitle">TUC Yrkeshögskola &nbsp;·&nbsp; Examen april 2026</div>
+    <ul>
+      <li>IoT-system &amp; LoRaWAN arkitektur</li>
+      <li>IT-projektledning (Agile/Scrum)</li>
+      <li>Nätverksteknologi (TCP/IP, connectivity)</li>
+      <li>Cybersäkerhet i IoT-miljöer</li>
+      <li>Digital förändring &amp; affärsintegration</li>
+      <li>Stakeholder / intressentkommunikation &amp; projektkoordinering</li>
+      <li>Praktisk implementation (LIA: IoT/LoRaWAN gateway deployment)</li>
+      <li>Arbetsmiljö &amp; juridik</li>
+    </ul>
+  </div>
+
+  <div class="edu-entry entry">
+    <div class="entry-header">
+      <span class="entry-title">Yrkesutbildning – Behandlingspedagog</span>
+      <span class="entry-date">2012–2014</span>
+    </div>
+    <div class="entry-subtitle">Arbetarrörelsens Folkhögskola i Viskadalen</div>
+    <ul>
+      <li>Kommunikation, konflikthantering och relationsbyggande i komplexa sociala miljöer</li>
+      <li>Erfarenhet av arbete med ungdomar och vuxna med särskilda behov</li>
+    </ul>
+  </div>
+
+  <div class="edu-entry entry">
+    <div class="entry-header">
+      <span class="entry-title">Certifikat</span>
+    </div>
+    <ul class="cert-list">
+      <li>DISA – Digital informationssäkerhetsutbildning</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     ARBETSLIVSERFARENHET
+══════════════════════════════════════════ -->
+<section>
+  <h2>Arbetslivserfarenhet</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Park/anläggning – Östra Göinge kommun</span>
+      <span class="entry-date">2022–2024</span>
+    </div>
+    <ul>
+      <li>Planerade och genomförde tekniska uppdrag i kommunal miljö med krav på självständighet och problemlösning under tidspress</li>
+      <li>Vana vid offentlig verksamhet, regelverk och samverkan med flera interna parter</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Operativa roller – industri och service</span>
+      <span class="entry-date">2018–2022</span>
+    </div>
+    <ul>
+      <li>Arbetade i varierande miljöer med krav på snabb inlärning, precision och leverans under tidspress</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Egenföretagare – Timmele Entreprenad AB</span>
+      <span class="entry-date">2014–2018</span>
+    </div>
+    <ul>
+      <li>Grundade och ledde anläggningsföretag med fullt verksamhetsansvar – ekonomi, budget, löner, upphandling och kundrelationer</li>
+      <li>Ledde 26 medarbetare i projektbaserad verksamhet</li>
+      <li>Planerade och drev projekt från offert till leverans, vilket gav praktisk erfarenhet av projektledning, riskhantering och beslutsfattande under ansvar</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Socialarbetare – Borås Stad / Göteborgs Stad</span>
+      <span class="entry-date">2012–2015</span>
+    </div>
+    <ul>
+      <li>Arbetade med ungdomar med särskilda behov</li>
+      <li>Tillämpade metoder från behandlingspedagogisk utbildning i praktiken – kommunikation, konflikthantering och motivationsarbete i komplexa sociala miljöer</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Konsult – Uniflex</span>
+      <span class="entry-date">2012</span>
+    </div>
+    <ul>
+      <li>Startade och drev två satellitlager (NetOnNet/SIBA)</li>
+      <li>Ansvarade för personal och operativ drift</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Produktionsansvarig / Montör – Specma JMS Systemhydraulik</span>
+      <span class="entry-date">2008–2009</span>
+    </div>
+    <ul>
+      <li>Ansvarade för planering, produktion och leverans</li>
+      <li>Utbildade personal, inklusive internationella medarbetare</li>
+      <li>Bidrog till kvalitetsförbättringar i produktionsprocessen som, enligt bolagets interna mätning, ingick i ett program med besparingar på över 100 MUSD</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     LEDARSKAP & ENGAGEMANG
+══════════════════════════════════════════ -->
+<section>
+  <h2>Ledarskap &amp; Engagemang</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Medgrundare &amp; Vice styrelseordförande – Lyckade Projekt</span>
+      <span class="entry-date">2026–nu</span>
+    </div>
+    <div class="entry-subtitle">Ideell organisation inom projektledning</div>
+    <ul>
+      <li>Medgrundade ideell organisation med fokus på projektledning och kompetensutveckling</li>
+      <li>Initierat och driver organisationens struktur från grunden – arbetssätt, stadgar och rekrytering av medlemmar</li>
+      <li>Samverkar med styrelse och externa intressenter</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Elevrepresentant i Ledningsgrupp – TUC Yrkeshögskola</span>
+      <span class="entry-date">2024–2026</span>
+    </div>
+    <div class="entry-subtitle">IoT-utbildning</div>
+    <ul>
+      <li>Representerade studenter i utbildningens ledningsgrupp</li>
+      <li>Bidrog till utveckling av utbildningens innehåll och inriktning</li>
+      <li>Fungerade som länk mellan studenter och utbildningsledning</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SPRÅK
+══════════════════════════════════════════ -->
+<section>
+  <h2>Språk</h2>
+  <div class="lang-row">
+    <div class="lang-item"><strong>Svenska</strong> – Modersmål</div>
+    <div class="lang-item"><strong>Engelska</strong> – CEFR C1 / Professionell arbetsnivå</div>
+  </div>
+</section>
 
   <footer>
     <p><a href="index.html">Back to start</a></p>
     <p>&copy; 2025 KorpTech</p>
   </footer>
+
 </body>
 </html>
